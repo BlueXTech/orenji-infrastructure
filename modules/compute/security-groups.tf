@@ -1,6 +1,6 @@
 # ------------ Security group for Application Load Balancer ------------
 resource "aws_security_group" "sg_alb_allow_all_https" {
-  name        = "SG_ALB_AllowAllHttps"
+  name        = "SG_ALB_AllowAllHttps-${var.environment}"
   description = "Security group that allows HTTPS traffic from anywhere"
 }
 
@@ -27,7 +27,7 @@ resource "aws_security_group_rule" "sgr_alb_allow_all_outbound" {
 
 # ------------------ Security group for EC2 instances ------------------
 resource "aws_security_group" "sg_ec2_allow_alb_and_ssh" {
-  name        = "SG_EC2_AllowAlbAndSSH"
+  name        = "SG_EC2_AllowAlbAndSSH-${var.environment}"
   description = "Security group that allows traffic from ALB and SSH access"
 }
 
